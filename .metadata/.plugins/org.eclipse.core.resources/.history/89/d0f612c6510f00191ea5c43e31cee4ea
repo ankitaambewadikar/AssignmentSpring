@@ -1,0 +1,11 @@
+package com.capgemini.app;
+
+public class MainApp {
+
+	public static void main(String[] args) {
+		 ApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
+		 Organization jc=(Organization)context.getBean("organization");
+
+	}
+
+}

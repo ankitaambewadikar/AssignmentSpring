@@ -1,0 +1,9 @@
+package com.cg.app.calculator;
+
+public class Calculator {
+
+	int add(int numOne,int numTwo) {
+		return numOne+numTwo;
+	}
+	
+}

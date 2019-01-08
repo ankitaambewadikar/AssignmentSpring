@@ -1,0 +1,12 @@
+package com.cg.app.service;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Calculator {
+
+	public Integer add(int numOne,int numTwo) {
+		return numOne+numTwo;
+	}
+	
+}

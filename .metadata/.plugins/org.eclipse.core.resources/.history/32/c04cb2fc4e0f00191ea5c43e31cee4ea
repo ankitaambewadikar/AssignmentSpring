@@ -1,0 +1,6 @@
+package com.capgemini.app;
+
+public interface InitilizeBegin {
+
+	void afterPropertiesSet();
+}

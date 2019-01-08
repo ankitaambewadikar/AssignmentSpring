@@ -1,0 +1,73 @@
+package com.cg.app.logging;
+
+import java.util.logging.Logger;
+
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.springframework.stereotype.Component;
+
+@Component
+@Aspect
+public class LoggingCalculator {
+
+	private Logger logger = Logger.getLogger(LoggingCalculator.class.getName());
+//
+//	@Before("execution (* com.cg.app.service.Calculator.*(..))")
+//	public void logOne(JoinPoint jp) { // BasicConfigurator.configure();
+//		logger.info("Before- logging the method");
+//		Object[] args = jp.getArgs();
+//		if ((Integer) args[0] == 0 || (Integer) args[1] == 0)
+//			logger.info("Number should not b 0");
+//	}
+//
+//	@After("execution (* com.cg.app.service.Calculator.*(..))")
+//	public void logTwo() {
+//		logger.info("After -logging the method");
+//	}
+
+	@Around("execution (* com.cg.app.service.Calculator.*(..))")
+	public void log3(ProceedingJoinPoint pjp) throws Throwable {
+		logger.info("Before-Logging the method");
+		logger.info("Function Name is:" + pjp.getSignature());
+		logger.info("Parameters are :");
+		Object[] params = pjp.getArgs();
+		for (int i = 0; i < params.length; i++) {
+			logger.info("Parameter value at index" + i + "is" + params[i]);
+		}
+		if ((Integer) params[0] != 0 && (Integer) params[1] != 0) {
+			pjp.proceed();
+		} else
+			throw new RuntimeException();
+
+		logger.info("After-Logging the method");
+	}
+
+//	@AfterReturning(pointcut = "execution (* com.cg.app.service.Calculator.add(..))", returning = "retVal")
+//	public void log4(Integer retVal) {
+//		logger.info("" + retVal);
+//		System.out.println("@AfterReturning : " + retVal);
+//	}
+//
+	@AfterThrowing(pointcut = "execution (* com.cg.app.service.Calculator.division(..))", throwing = "error")
+	public void log5(JoinPoint jp, Throwable error) {
+		System.out.println("Error ankita  " + error);
+		System.out.println(jp.getSignature());
+	}
+
+	@Around("execution (* com.cg.app.service.Calculator.add(..))")
+	public void around(ProceedingJoinPoint pjp) throws Throwable {
+		Object[] args = pjp.getArgs();
+		if ((Integer) args[0] == 0 || (Integer) args[1] == 0) {
+			logger.info("Number should not b 0");
+		} else {
+			pjp.proceed();
+			logger.info("Method executed successfully.");
+		}
+	}
+}

@@ -1,0 +1,10 @@
+package com.capgemini.app;
+
+public class ExampleBean implements InitilizeBegin{
+
+	public void afterPropertiesSet() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

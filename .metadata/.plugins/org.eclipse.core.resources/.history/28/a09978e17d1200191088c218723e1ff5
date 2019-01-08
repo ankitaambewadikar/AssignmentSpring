@@ -1,0 +1,23 @@
+package com.cg.app.rowMapper;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.springframework.jdbc.core.RowMapper;
+
+import com.cg.app.account.BankAccount;
+import com.cg.app.account.SavingsAccount;
+
+public class SavingsAccountMapper implements RowMapper<SavingsAccount> {
+
+	@Override
+	public SavingsAccount mapRow(ResultSet rs, int rowNum) throws SQLException {
+		
+		int accountNumber = rs.getInt("account_id");
+		String accountholderName = rs.getString("account_hn");
+		double accountBalance = rs.getDouble("account_balance");
+		return new SavingsAccount(accountNumber,accountholderName,accountBalance,rs.getBoolean("salary"));
+		
+	}
+
+}

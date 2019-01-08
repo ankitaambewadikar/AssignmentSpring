@@ -1,0 +1,7 @@
+package com.cg.app.dao;
+
+import org.springframework.context.annotation.Primary;
+
+public class SavingsAccountSpringJSDAOImpl {
+
+}

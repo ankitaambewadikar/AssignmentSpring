@@ -1,0 +1,5 @@
+package com.cg.app.dao;
+
+public class SavingsAccountSpringJSDAOImpl {
+
+}

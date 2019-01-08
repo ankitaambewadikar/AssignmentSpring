@@ -1,0 +1,10 @@
+package com.capgemini.app;
+
+public class AbstractApplicationContext {
+
+	public HelloWorld getBean(String string) {
+		
+		return null;
+	}
+
+}

@@ -1,0 +1,31 @@
+package com.capgemini.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.capgemini.model.Customer;
+import com.capgemini.repository.CustomerRepository;
+
+@Service("customerService")
+public class CustomerServiceImpl implements CustomerService {
+	
+	//@Autowired
+	private CustomerRepository customerRepository;
+	
+	//@Autowired
+	public void setCustomerRepository(CustomerRepository customerRepository) {
+		this.customerRepository = customerRepository;
+	}
+
+	public CustomerServiceImpl(CustomerRepository customerRepository) {
+		// TODO Auto-generated constructor stub
+	}
+	@Override
+	public List<Customer> findAll(){
+		System.out.println("In set customer repository");
+		return customerRepository.findAll();
+		
+	}
+}

@@ -1,0 +1,28 @@
+package com.cg.app.validation;
+
+import java.util.logging.Logger;
+
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.springframework.stereotype.Component;
+
+import com.cg.app.exception.InsufficientFundsException;
+import com.cg.app.exception.InvalidInputException;
+
+@Component
+@Aspect
+public class OperationsValidation {
+	private Logger logger = Logger.getLogger(OperationsValidation.class.getName());
+
+	@Around("execution (* com.cg.app.service.SavingsAccountServiceImpl.deposit(..))")
+	public void around(ProceedingJoinPoint pjp) throws Throwable {
+		Object[] params = pjp.getArgs();
+		if ((Double) params[0] > 0) {
+			pjp.proceed();
+		} else
+			throw new InvalidInputException("invalid input");
+	}
+	
+	
+}

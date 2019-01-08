@@ -1,0 +1,19 @@
+package com.cg.app;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.cg.app.ui.AccountCUI;
+
+public class AppMMBank {
+
+	public static void main(String[] args) {
+	
+		ApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
+		AccountCUI cui = context.getBean(AccountCUI.class,"context.xml");
+		cui.start();
+		
+
+	}
+
+}

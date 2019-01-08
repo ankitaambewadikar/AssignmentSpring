@@ -1,0 +1,7 @@
+INDEX VERSION 1.131+C:\ASSIGNMENTS\SpringAssigments\.metadata\.plugins\org.eclipse.jdt.core
+1167305168.index
+4048371918.index
+1929071388.index
+2860269464.index
+209264279.index
+2662657301.index

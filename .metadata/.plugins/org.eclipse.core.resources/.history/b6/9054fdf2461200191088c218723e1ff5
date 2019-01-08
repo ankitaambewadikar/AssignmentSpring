@@ -1,0 +1,57 @@
+package com.moneymoney.account.dao;
+
+import java.util.List;
+
+import com.moneymoney.account.CurrentAccount;
+
+public class CurrentAccountDAOImpl implements CurrentAccountDAO {
+
+	@Override
+	public CurrentAccount createNewAccount(CurrentAccount account) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public double checkCurrentBalance(int accountNumber) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public CurrentAccount getAccountById(int accountNumber) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CurrentAccount deleteAccount(int accountNumber) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<CurrentAccount> getAllCurrentAccounts() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void updateBalance(int accountNumber, double currentBalance) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public CurrentAccount updateAccount(CurrentAccount currentAccount) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CurrentAccount getAccountByName(String accountHolderName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

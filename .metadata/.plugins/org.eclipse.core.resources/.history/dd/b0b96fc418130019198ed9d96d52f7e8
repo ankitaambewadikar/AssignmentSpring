@@ -1,0 +1,5 @@
+package com.cg.app.logging;
+
+public class LoggingCalculator {
+
+}

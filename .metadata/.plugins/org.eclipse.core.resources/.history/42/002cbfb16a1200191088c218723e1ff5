@@ -1,0 +1,7 @@
+package com.cg.app.rowMapper;
+
+import org.springframework.jdbc.core.RowMapper;
+
+public class SavingsAccountMapper implements RowMapper<T> {
+
+}

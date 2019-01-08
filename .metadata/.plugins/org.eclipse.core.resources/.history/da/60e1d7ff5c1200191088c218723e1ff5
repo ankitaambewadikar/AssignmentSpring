@@ -1,0 +1,9 @@
+package com.cg.app.dao;
+import com.cg.app.dao.SavingsAccountDAO;
+
+import org.springframework.context.annotation.Primary;
+
+@Primary
+public class SavingsAccountSpringJSDAOImpl {
+
+}

@@ -1,0 +1,18 @@
+package com.moneymoney.account.dao;
+
+import java.util.List;
+
+import com.moneymoney.account.CurrentAccount;
+import com.moneymoney.account.SavingsAccount;
+
+public interface CurrentAccountDAO {
+	
+	CurrentAccount createNewAccount(CurrentAccount account);
+	double checkCurrentBalance(int accountNumber);
+	CurrentAccount getAccountById(int accountNumber);
+	CurrentAccount deleteAccount(int accountNumber);
+	List<CurrentAccount> getAllCurrentAccounts();
+	void updateBalance(int accountNumber, double currentBalance);
+	CurrentAccount updateAccount(CurrentAccount currentAccount);
+	CurrentAccount getAccountByName(String accountHolderName);
+}

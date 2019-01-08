@@ -1,0 +1,8 @@
+package com.cg.app.validation;
+
+import java.util.logging.Logger;
+
+public class FundTransferValidation {
+
+	private Logger logger = Logger.getLogger(FundTransferValidation.class.getName());
+}

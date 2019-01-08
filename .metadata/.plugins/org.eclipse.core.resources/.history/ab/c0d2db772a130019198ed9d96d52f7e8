@@ -1,0 +1,20 @@
+package com.cg.app;
+
+import org.springframework.context.ApplicationContext;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.cg.app.service.Calculator;
+
+public class MainApp {
+
+	public static void main(String[] args) {
+		
+		ApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
+		Calculator calc = context.getBean(Calculator.class);
+		calc.add(10,20);
+		
+
+	}
+
+}
