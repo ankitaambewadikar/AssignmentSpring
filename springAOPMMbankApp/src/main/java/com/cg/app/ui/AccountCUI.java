@@ -122,14 +122,17 @@ public class AccountCUI {
 		System.out.println("Enter Amount: ");
 		double amount = scanner.nextDouble();
 		SavingsAccount savingsAccount = null;
-		try {
-			savingsAccount = savingsAccountService.getAccountById(accountNumber);
-			savingsAccountService.withdraw(savingsAccount, amount);
+			try {
+				savingsAccount = savingsAccountService.getAccountById(accountNumber);
+				savingsAccountService.withdraw(savingsAccount, amount);
+			} catch (AccountNotFoundException e) {
+				e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 
-		} catch (AccountNotFoundException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-		}
+		 
 	}
 
 	private void showAllAccounts() {

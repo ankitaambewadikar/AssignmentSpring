@@ -4,11 +4,14 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="com.capgemini.app"/>
 			<item value="com.cg.app"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="springAOPMMbankApp"/>
+			<item value="springAopCalculator"/>
 			<item value="SpringJDBcMMBankApp"/>
 		</list>
 		<list key="projectNameTemplate">
@@ -72,6 +75,7 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\Ankita\downloaded_files\MMBankApp (1)"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

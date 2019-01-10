@@ -17,19 +17,7 @@ import org.springframework.stereotype.Component;
 public class LoggingCalculator {
 
 	private Logger logger = Logger.getLogger(LoggingCalculator.class.getName());
-//
-//	@Before("execution (* com.cg.app.service.Calculator.*(..))")
-//	public void logOne(JoinPoint jp) { // BasicConfigurator.configure();
-//		logger.info("Before- logging the method");
-//		Object[] args = jp.getArgs();
-//		if ((Integer) args[0] == 0 || (Integer) args[1] == 0)
-//			logger.info("Number should not b 0");
-//	}
-//
-//	@After("execution (* com.cg.app.service.Calculator.*(..))")
-//	public void logTwo() {
-//		logger.info("After -logging the method");
-//	}
+
 
 	@Around("execution (* com.cg.app.service.Calculator.*(..))")
 	public void log3(ProceedingJoinPoint pjp) throws Throwable {

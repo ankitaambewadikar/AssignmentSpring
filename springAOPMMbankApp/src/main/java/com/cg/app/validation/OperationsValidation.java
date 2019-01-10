@@ -31,23 +31,39 @@ public class OperationsValidation {
 	@Around("execution (* com.cg.app.service.SavingsAccountServiceImpl.withdraw(..))")
 	public void aroundwithdraw(ProceedingJoinPoint pjp) throws Throwable {
 		Object[] params = pjp.getArgs();
-		SavingsAccount savingAccount = (SavingsAccount) params[0];
-		double currentBalance = savingAccount.getBankAccount().getAccountBalance();
-		if ((Double) params[1] > 0 && currentBalance >= (Double) params[1]) {
+
+		if ((Double) params[1] > 0) {
 			pjp.proceed();
 			logger.info("Withdraw successful");
 		} else {
-			logger.info("Failde");
-			  throw new InsufficientFundsException("low balance in account");
-			 
-			
+			throw new InvalidInputException("wrong amount entered");
+			// logger.info("Transaction Fail");
+
 		}
 
 	}
 	
-	@AfterThrowing(pointcut = "execution (* com.cg.app.service.SavingsAccountServiceImpl.*(..))", throwing = "error")
-	public void log5(JoinPoint jp, Throwable error) {
-		System.out.println("Error ankita  " + error);
-		System.out.println(jp.getSignature());
+
+	@Around("execution (* com.cg.app.service.SavingsAccountServiceImpl.withdraw(..))")
+	public void aroundgetAccId(ProceedingJoinPoint pjp) throws Throwable {
+		Object[] params = pjp.getArgs();
+
+		if ((Double) params[1] > 0) {
+			pjp.proceed();
+			logger.info("Withdraw successful");
+		} else {
+			throw new InvalidInputException("wrong amount entered");
+			// logger.info("Transaction Fail");
+
+		}
+
 	}
+
+
+	/*
+	 * @AfterThrowing(pointcut =
+	 * "execution (* com.cg.app.service.SavingsAccountServiceImpl.*(..))", throwing
+	 * = "error") public void log5(Throwable error) {
+	 * logger.info("Insufficient Funds in account"); }
+	 */
 }

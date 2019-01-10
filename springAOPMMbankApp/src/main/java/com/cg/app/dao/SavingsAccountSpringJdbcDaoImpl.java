@@ -41,11 +41,9 @@ public class SavingsAccountSpringJdbcDaoImpl implements SavingsAccountDAO {
 	}
 
 	
-	public SavingsAccount getAccountById(int accountNumber)
-			throws AccountNotFoundException {
+	public SavingsAccount getAccountById(int accountNumber) throws AccountNotFoundException {
 
-		return jdbctemplate.queryForObject("SELECT * FROM account where account_id=?", new Object[] { accountNumber },
-				new SavingsAccountMapper());
+		return jdbctemplate.queryForObject("SELECT * FROM account where account_id=?", new Object[] { accountNumber },new SavingsAccountMapper());
 	}
 
 	

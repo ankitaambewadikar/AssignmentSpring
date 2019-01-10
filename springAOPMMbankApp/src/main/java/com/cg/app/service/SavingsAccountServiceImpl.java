@@ -1,7 +1,5 @@
 package com.cg.app.service;
 
-import java.sql.SQLException;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +10,6 @@ import com.cg.app.account.SavingsAccount;
 import com.cg.app.dao.SavingsAccountDAO;
 import com.cg.app.exception.AccountNotFoundException;
 import com.cg.app.exception.InsufficientFundsException;
-import com.cg.app.exception.InvalidInputException;
 import com.cg.app.factory.AccountFactory;
 
 @Service
@@ -48,8 +45,12 @@ public class SavingsAccountServiceImpl implements SavingsAccountService {
 	@Transactional
 	public void withdraw(SavingsAccount account, double amount) {
 		double currentBalance = account.getBankAccount().getAccountBalance();
-		currentBalance = currentBalance -amount;
-		savingsAccountDAO.updateBalance(account.getBankAccount().getAccountNumber(), currentBalance);
+		if (amount > 0 && currentBalance >= amount) {
+			currentBalance = currentBalance - amount;
+			savingsAccountDAO.updateBalance(account.getBankAccount().getAccountNumber(), currentBalance);
+		} else {
+			throw new InsufficientFundsException("Invalid Input or Insufficient Funds!");
+		}
 
 	}
 
@@ -62,7 +63,7 @@ public class SavingsAccountServiceImpl implements SavingsAccountService {
 	}
 
 	public SavingsAccount getAccountById(int accountNumber) throws AccountNotFoundException {
-		return savingsAccountDAO.getAccountById(accountNumber);
+			return savingsAccountDAO.getAccountById(accountNumber);
 	}
 
 	public SavingsAccount deleteAccount(int accountNumber) throws AccountNotFoundException {
